@@ -11,12 +11,17 @@
     exports.__esModule = true;
     var UserData = /** @class */ (function () {
         function UserData(data) {
-            this.firstName = data.firstName;
-            this.middleName = data.middleName;
-            this.lastName = data.lastName;
-            this.email = data.email;
-            this.userName = data.userName;
-            console.log(this.firstName);
+            this.Name = data.name;
+            this.Address = data.address;
+            this.CurrentCompanyExpInYears = data.currentCompanyExp.Years;
+            this.CurrentCompanyExpInMonths = data.currentCompanyExp.Months;
+            this.CurrentCompanyExpInDays = data.currentCompanyExp.Days;
+            this.ContactPrimary = data.contactDetail.Primary;
+            this.ContactSecondary = data.contactDetail.Secondary;
+            this.AgeInYears = data.age.Years;
+            this.AgeInMonths = data.age.Months;
+            this.AgeInDays = data.age.Days;
+            this.IsIndian = data.isIndian;
         }
         return UserData;
     }());

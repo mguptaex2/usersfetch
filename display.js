@@ -13,7 +13,15 @@
         function Display1() {
         }
         Display1.prototype.showUserData = function (obj) {
-            document.body.innerHTML += "<p class='ss'> Name:" + obj.firstName + " " + obj.middleName + " " + obj.lastName + " <br> Email:" + obj.email + "<br> username:" + obj.userName + "<br>";
+            {
+                document.body.innerHTML += "<p class='ss'> Name:" + obj.Name + "<br>"
+                    + " " + " <br> Address : <br>" + obj.Address + "<br> "
+                    + " " + " <br> Experience : " + obj.CurrentCompanyExpInYears + " Years " + obj.CurrentCompanyExpInMonths + " Months" + "<br>"
+                    + " " + " <br> ContactPrimary:" + obj.ContactPrimary + "<br> "
+                    + " " + " <br> ContactSecondary:" + obj.ContactSecondary + "<br> "
+                    + " " + " <br> Age :" + obj.AgeInYears + " Years " + obj.AgeInMonths + " Months " + "<br> "
+                    + " " + " <br> IsIndian:" + obj.IsIndian + "<br> ";
+            }
         };
         return Display1;
     }());
