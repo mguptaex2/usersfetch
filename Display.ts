@@ -5,7 +5,7 @@ export class Display1
 {
     showUserData(obj : UserData){
     {
-        document.body.innerHTML += "<p class='ss'> Name:"+ obj.Name + "<br>"
+        document.getElementById("out").innerHTML += "<p class='ss'> Name:"+ obj.Name + "<br>"
                                     +" "+" <br> Address : <br>"+obj.Address+"<br> "
                                     +" "+" <br> Experience : "+obj.CurrentCompanyExpInYears+" Years "+obj.CurrentCompanyExpInMonths+" Months"+"<br>"
                                     +" "+" <br> ContactPrimary:"+obj.ContactPrimary+"<br> "

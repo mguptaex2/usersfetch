@@ -19,32 +19,33 @@ export class GetApi
         break ;
         }
          
-         for(let i=0;i<data.length;i++)
-         {
+        document.getElementById("out").innerHTML = "";
+        for(let i=0;i<data.length;i++)
+        {
           let res =new UserData(data[i]);
           console.log(res);
           let obj = new Display1();
           obj.showUserData(res);   
-         }
+        }
         
         }).catch(err =>console.log(err));
-     } 
+      } 
      
      
      
      entered_name()
      {
-       console.log(document.getElementById("fname").value);
-        return fetch("https://localhost:5001/api/assignment?search="+document.getElementById("fname").value).then(Response=>Response.json()).then(data=>{
-         console.log(data[0]);
-         let res =new UserData(data[0]);
-         console.log(res);
-         let obj = new Display1();
-         obj.showUserData(res);  
+        return fetch("https://localhost:5001/api/assignment?search="+(document.getElementById("fname") as HTMLInputElement).value).then(Response=>Response.json()).then(data=>{
+        document.getElementById("out").innerHTML = "";
+        for(let i=0;i<data.length;i++)
+        {
+          let res =new UserData(data[i]);
+          let obj = new Display1();
+          obj.showUserData(res);   
+        }
 
-
-       }).catch(err=>console.log(err));
-     }
+      }).catch(err=>console.log(err));
+    }
 }
 
 

@@ -29,6 +29,7 @@
                         data.sort(new Compare_1.Compare().SortByExperience);
                         break;
                 }
+                document.getElementById("out").innerHTML = "";
                 for (var i = 0; i < data.length; i++) {
                     var res = new userData_1.UserData(data[i]);
                     console.log(res);
@@ -41,10 +42,13 @@
             console.log(document.getElementById("fname").value);
             return fetch("https://localhost:5001/api/assignment?search=" + document.getElementById("fname").value).then(function (Response) { return Response.json(); }).then(function (data) {
                 console.log(data[0]);
-                var res = new userData_1.UserData(data[0]);
-                console.log(res);
-                var obj = new Display_1.Display1();
-                obj.showUserData(res);
+                document.getElementById("out").innerHTML = "";
+                for (var i = 0; i < data.length; i++) {
+                    var res = new userData_1.UserData(data[i]);
+                    console.log(res);
+                    var obj = new Display_1.Display1();
+                    obj.showUserData(res);
+                }
             })["catch"](function (err) { return console.log(err); });
         };
         return GetApi;
