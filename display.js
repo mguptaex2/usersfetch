@@ -20,7 +20,9 @@
                     + " " + " <br> ContactPrimary:" + obj.ContactPrimary + "<br> "
                     + " " + " <br> ContactSecondary:" + obj.ContactSecondary + "<br> "
                     + " " + " <br> Age :" + obj.AgeInYears + " Years " + obj.AgeInMonths + " Months " + "<br> "
-                    + " " + " <br> IsIndian:" + obj.IsIndian + "<br> ";
+                    + " " + " <br> IsIndian:" + obj.IsIndian + "<br> "
+                    + "<a href=\"updateform.html?abc=" + obj.Username + "\">Update user details</a> <br>"
+                    + "<button class=\"delete-button\" name=\"" + obj.Username + "\">Delete</button>";
             }
         };
         return Display1;

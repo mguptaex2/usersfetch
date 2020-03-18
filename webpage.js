@@ -16,6 +16,7 @@
         function GetApi() {
         }
         GetApi.prototype.get_request = function (num) {
+            if (num === void 0) { num = -1; }
             fetch("https://localhost:5001/api/assignment").then(function (Response) { return Response.json(); }).then(function (data) {
                 console.log(data);
                 switch (num) {
@@ -28,6 +29,8 @@
                     case 2:
                         data.sort(new Compare_1.Compare().SortByExperience);
                         break;
+                    default:
+                        break;
                 }
                 document.getElementById("out").innerHTML = "";
                 for (var i = 0; i < data.length; i++) {
@@ -39,17 +42,23 @@
             })["catch"](function (err) { return console.log(err); });
         };
         GetApi.prototype.entered_name = function () {
-            console.log(document.getElementById("fname").value);
-            return fetch("https://localhost:5001/api/assignment?search=" + document.getElementById("fname").value).then(function (Response) { return Response.json(); }).then(function (data) {
-                console.log(data[0]);
+            fetch("https://localhost:5001/api/assignment?search=" + document.getElementById("fname").value)
+                .then(function (Response) { return Response.json(); })
+                .then(function (data) {
+                console.log(data);
                 document.getElementById("out").innerHTML = "";
                 for (var i = 0; i < data.length; i++) {
                     var res = new userData_1.UserData(data[i]);
-                    console.log(res);
                     var obj = new Display_1.Display1();
                     obj.showUserData(res);
                 }
             })["catch"](function (err) { return console.log(err); });
+        };
+        GetApi.prototype.delete_data = function (user) {
+            //var user = ((document.getElementById("uname")as HTMLInputElement).value);
+            fetch("https://localhost:5001/api/user/" + user + "/remove", {
+                method: "DELETE"
+            });
         };
         return GetApi;
     }());
@@ -65,6 +74,24 @@
     });
     document.querySelector("#sr").addEventListener("click", function () {
         console.log(1);
-        new GetApi().entered_name();
+        var temp = new GetApi();
+        temp.entered_name();
+    });
+    document.addEventListener("click", function (e) {
+        if (e.target.className == "delete-button") {
+            var temp = new GetApi();
+            var username = e.target.getAttribute('name');
+            temp.delete_data(username);
+            alert(username + " is deleted!");
+            temp.get_request();
+        }
     });
 });
+// function deleteHandler () {
+//     console.log(this);
+//     console.log(this.getAttribute('name'));
+//     // 
+//   };
+// const urlParams = new URLSearchParams(window.location.search);
+// const myParam = urlParams.get("abc");
+// console.log(myParam);

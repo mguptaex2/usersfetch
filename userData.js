@@ -12,6 +12,7 @@
     var UserData = /** @class */ (function () {
         function UserData(data) {
             this.Name = data.name;
+            this.Username = data.username;
             this.Address = data.address;
             this.CurrentCompanyExpInYears = data.currentCompanyExp.Years;
             this.CurrentCompanyExpInMonths = data.currentCompanyExp.Months;

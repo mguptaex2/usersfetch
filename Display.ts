@@ -1,8 +1,11 @@
 import { UserData } from "./userData";
 
-
 export class Display1
 {
+    
+    
+    
+    
     showUserData(obj : UserData){
     {
         document.getElementById("out").innerHTML += "<p class='ss'> Name:"+ obj.Name + "<br>"
@@ -11,7 +14,10 @@ export class Display1
                                     +" "+" <br> ContactPrimary:"+obj.ContactPrimary+"<br> "
                                     +" "+" <br> ContactSecondary:"+obj.ContactSecondary+"<br> "
                                     +" "+" <br> Age :"+obj.AgeInYears+" Years "+obj.AgeInMonths+" Months "+"<br> "
-                                    +" "+" <br> IsIndian:"+obj.IsIndian+"<br> ";
+                                    +" "+" <br> IsIndian:"+obj.IsIndian+"<br> "
+                                    +"<a href=\"updateform.html?abc=" + obj.Username + "\">Update user details</a> <br>"
+                                    + "<button class=\"delete-button\" name=\"" + obj.Username + "\">Delete</button>";
+                                   
     }
 }
 }
