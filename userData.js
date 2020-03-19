@@ -13,7 +13,11 @@
         function UserData(data) {
             this.Name = data.name;
             this.Username = data.username;
-            this.Address = data.address;
+            this.AddressLine = data.address.AddressLine;
+            this.City = data.address.City;
+            this.State = data.address.State;
+            this.Country = data.address.Country;
+            this.PIN = data.address.PIN;
             this.CurrentCompanyExpInYears = data.currentCompanyExp.Years;
             this.CurrentCompanyExpInMonths = data.currentCompanyExp.Months;
             this.CurrentCompanyExpInDays = data.currentCompanyExp.Days;
@@ -24,6 +28,34 @@
             this.AgeInDays = data.age.Days;
             this.IsIndian = data.isIndian;
         }
+        UserData.prototype.companyExperienceInString = function () {
+            var res = "";
+            if (this.CurrentCompanyExpInYears > 0) {
+                res += this.getSingularOrPluralString(this.CurrentCompanyExpInYears, "Year");
+            }
+            if (this.CurrentCompanyExpInMonths > 0) {
+                res += this.getSingularOrPluralString(this.CurrentCompanyExpInMonths, "Month");
+            }
+            return res;
+        };
+        UserData.prototype.userAge = function () {
+            var res = "";
+            if (this.AgeInYears > 0) {
+                res += this.getSingularOrPluralString(this.AgeInYears, "Year");
+            }
+            if (this.AgeInMonths > 0) {
+                res += this.getSingularOrPluralString(this.AgeInMonths, "Month");
+            }
+            return res;
+        };
+        UserData.prototype.getSingularOrPluralString = function (quantity, value) {
+            var res = quantity + value;
+            res += quantity > 1 ? "s " : " ";
+            return res;
+        };
+        UserData.prototype.getNewName = function () {
+            return this.Name + "-------";
+        };
         return UserData;
     }());
     exports.UserData = UserData;

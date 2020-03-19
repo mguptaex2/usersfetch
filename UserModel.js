@@ -9,32 +9,32 @@
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    var CreateUserModel = /** @class */ (function () {
-        function CreateUserModel() {
+    var UserModel = /** @class */ (function () {
+        function UserModel() {
             this.Addresses = new Array();
             this.Phones = new Array();
         }
-        return CreateUserModel;
+        return UserModel;
     }());
-    exports.CreateUserModel = CreateUserModel;
+    exports.UserModel = UserModel;
     var phones = /** @class */ (function () {
-        function phones(a, b, c, d) {
-            this.ContactNumberType = a;
-            this.Number = b;
-            this.CountryCode = c;
-            this.AreaCode = d;
+        function phones(contacttype, number, countrycode, areacode) {
+            this.ContactNumberType = contacttype;
+            this.Number = number;
+            this.CountryCode = countrycode;
+            this.AreaCode = areacode;
         }
         return phones;
     }());
     exports.phones = phones;
     var addresses = /** @class */ (function () {
-        function addresses(e, f, g, h, i, j) {
-            this.AddressType = e;
-            this.AddressLine = f;
-            this.City = g;
-            this.State = h;
-            this.Country = i;
-            this.PIN = j;
+        function addresses(addresstype, addressline, city, state, country, pin) {
+            this.AddressType = addresstype;
+            this.AddressLine = addressline;
+            this.City = city;
+            this.State = state;
+            this.Country = country;
+            this.PIN = pin;
         }
         return addresses;
     }());

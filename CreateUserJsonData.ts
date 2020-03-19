@@ -1,4 +1,4 @@
-import * as abc from "./CreateUserModel";
+import * as abc from "./UserModel";
 import { CreateUserApi } from "./CreateUserApi";
 
 console.log("as");
@@ -15,7 +15,7 @@ console.log("as");
 
 function toJSONString( form ) {
     
-    var obj = new abc.CreateUserModel();
+    var obj = new abc.UserModel();
 
     obj.Salutation= (document.getElementById('sal')as HTMLInputElement).value;
     obj.FirstName = (document.getElementById('fname')as HTMLInputElement).value ;

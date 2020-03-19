@@ -1,60 +1,52 @@
 export class Compare {
-          SortByName(a,b)
+          
+          SortByName(first_person_name,second_person_name)
          {
-           if(a.name!= null && b.name!= null  && a.name!= undefined && b.name!= undefined)
+           if(first_person_name.name!= null && second_person_name.name!= null  && first_person_name.name!= undefined && second_person_name.name!= undefined)
            {   
-              var f1= a.name.toString().toLowerCase();
-              var f2= b.name.toString().toLowerCase();
-              return ((f1<f2) ? -1 : ((f1>f2) ? 1 : 0)); 
+              var first_person= first_person_name.name.toString().toLowerCase();
+              var second_person= second_person_name.name.toString().toLowerCase();
+              return ((first_person<second_person) ? -1 : ((first_person>second_person) ? 1 : 0)); 
            }
          }
-         SortByAge(a,b)
-         {       
+         SortByAge(first_person_age,seconde_person_age)
+         {     
              
-              if(a.age.Years!=b.age.Years)
+              if(first_person_age.age.Years!=seconde_person_age.age.Years)
               { 
                 console.log(1);  
-                if(a.age.Years > b.age.Years)return 1;
-                else if(a.age.Years < b.age.Years) return -1;
+                if(first_person_age.age.Years > seconde_person_age.age.Years)return 1;
+                else if(first_person_age.age.Years < seconde_person_age.age.Years) return -1;
                 
               }
-              else if(a.age.Months!=b.age.Months)
+              else if(first_person_age.age.Months!=seconde_person_age.age.Months)
               {
                 console.log(2);  
-                if(a.age.Months>b.age.Months) return 1;
-                else if(a.age.Months<b.age.Months) return -1;
+                if(first_person_age.age.Months>seconde_person_age.age.Months) return 1;
+                else if(first_person_age.age.Months<seconde_person_age.age.Months) return -1;
               }
-              else if(a.age.Days!=b.age.Days)
+              else if(first_person_age.age.Days!=seconde_person_age.age.Days)
               {
                 console.log(3);  
-                if(a.age.Days>b.age.Days) return 1;
-                else if(a.age.Days<b.age.Days) return -1;
+                if(first_person_age.age.Days>seconde_person_age.age.Days) return 1;
+                else if(first_person_age.age.Days<seconde_person_age.age.Days) return -1;
               }
               else return 0;
-
-                 
-            //  else if(a.age.months > b.age.months)return 1;
-            //  else if(a.age.months < b.age.months) return -1;
-            //  else if(a.age.days < b.age.days) return 1;
-            //  else if(a.age.days > b.age.days) return -1;
-            
-             
-           // return ((a.age.months < b.age.months) ? -1 : ((a.age.months>b.age.months) ? 1 : 0));
         }
-        SortByExperience(a,b)
+        SortByExperience(first_person_exp,second_person_exp)
          {
              console.log(10);
-                  if(a.currentCompanyExp.Years!=b.currentCompanyExp.Years)
+                  if(first_person_exp.currentCompanyExp.Years!=second_person_exp.currentCompanyExp.Years)
                  {
                       console.log(1);
-                     if(a.currentCompanyExp.Years>b.currentCompanyExp.Years)return 1;
-                     else if(a.currentCompanyExp.Years<b.currentCompanyExp.Years)return -1;
+                     if(first_person_exp.currentCompanyExp.Years>second_person_exp.currentCompanyExp.Years)return 1;
+                     else if(first_person_exp.currentCompanyExp.Years<second_person_exp.currentCompanyExp.Years)return -1;
                  }
                  
-            else if(a.currentCompanyExp.Months!=b.currentCompanyExp.Months)
+            else if(first_person_exp.currentCompanyExp.Months!=second_person_exp.currentCompanyExp.Months)
             {
-                if(a.currentCompanyExp.Months>b.currentCompanyExp.Months)return 1;
-                else if(a.currentCompanyExp.Months<b.currentCompanyExp.Months)return -1;
+                if(first_person_exp.currentCompanyExp.Months>second_person_exp.currentCompanyExp.Months)return 1;
+                else if(first_person_exp.currentCompanyExp.Months<second_person_exp.currentCompanyExp.Months)return -1;
             }
 
 

@@ -15,18 +15,17 @@
     var GetApi = /** @class */ (function () {
         function GetApi() {
         }
-        GetApi.prototype.get_request = function (num) {
-            if (num === void 0) { num = -1; }
-            fetch("https://localhost:5001/api/assignment").then(function (Response) { return Response.json(); }).then(function (data) {
+        GetApi.prototype.get_request = function (compare) {
+            fetch("http://localhost:5000/api/assignment").then(function (Response) { return Response.json(); }).then(function (data) {
                 console.log(data);
-                switch (num) {
-                    case 0:
+                switch (compare) {
+                    case "sort_by_name":
                         data.sort(new Compare_1.Compare().SortByName);
                         break;
-                    case 1:
+                    case "sort_by_age":
                         data.sort(new Compare_1.Compare().SortByAge);
                         break;
-                    case 2:
+                    case "sort_by_exp":
                         data.sort(new Compare_1.Compare().SortByExperience);
                         break;
                     default:
@@ -41,8 +40,31 @@
                 }
             })["catch"](function (err) { return console.log(err); });
         };
+        // get_request(num: number = -1) {
+        //   fetch("http://localhost:5000/api/assignment").then
+        //     ((Response) => { return Response.json(); }).then((data) => {
+        //       console.log(data);
+        //       switch (num) {
+        //         case 0: data.sort(new Compare().SortByName);
+        //           break;
+        //         case 1: data.sort(new Compare().SortByAge);
+        //           break;
+        //         case 2: data.sort(new Compare().SortByExperience);
+        //           break;
+        //         default:
+        //             break;
+        //       }
+        //       document.getElementById("out").innerHTML = "";
+        //       for (let i = 0; i < data.length; i++) {
+        //         let res = new UserData(data[i]);
+        //         console.log(res);
+        //         let obj = new Display1();
+        //         obj.showUserData(res);
+        //       }
+        //     }).catch(err => console.log(err));
+        // }
         GetApi.prototype.entered_name = function () {
-            fetch("https://localhost:5001/api/assignment?search=" + document.getElementById("fname").value)
+            fetch("http://localhost:5000/api/assignment?search=" + document.getElementById("fname").value)
                 .then(function (Response) { return Response.json(); })
                 .then(function (data) {
                 console.log(data);
@@ -55,8 +77,7 @@
             })["catch"](function (err) { return console.log(err); });
         };
         GetApi.prototype.delete_data = function (user) {
-            //var user = ((document.getElementById("uname")as HTMLInputElement).value);
-            fetch("https://localhost:5001/api/user/" + user + "/remove", {
+            fetch("http://localhost:5000/api/user/" + user + "/remove", {
                 method: "DELETE"
             });
         };
@@ -64,13 +85,13 @@
     }());
     exports.GetApi = GetApi;
     document.querySelector("#byname").addEventListener("click", function () {
-        new GetApi().get_request(0);
+        new GetApi().get_request("sort_by_name");
     });
     document.querySelector("#byage").addEventListener("click", function () {
-        new GetApi().get_request(1);
+        new GetApi().get_request("sort_by_age");
     });
     document.querySelector("#byexperience").addEventListener("click", function () {
-        new GetApi().get_request(2);
+        new GetApi().get_request("sort_by_exp");
     });
     document.querySelector("#sr").addEventListener("click", function () {
         console.log(1);
@@ -82,8 +103,9 @@
             var temp = new GetApi();
             var username = e.target.getAttribute('name');
             temp.delete_data(username);
-            alert(username + " is deleted!");
-            temp.get_request();
+            document.getElementById("out").innerHTML = "";
+            alert(username + " is deleted");
+            temp.get_request("");
         }
     });
 });

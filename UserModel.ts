@@ -1,4 +1,4 @@
-export class CreateUserModel
+export class UserModel
 {
     Salutation:string;
     FirstName:string;
@@ -26,12 +26,12 @@ export class CreateUserModel
     Number:string;
      CountryCode : string;
     AreaCode:string;
-    constructor(a,b,c,d)
+    constructor(contacttype,number,countrycode,areacode)
     {
-        this.ContactNumberType=a;
-        this.Number=b;
-        this.CountryCode=c;
-        this.AreaCode=d;
+        this.ContactNumberType=contacttype;
+        this.Number=number;
+        this.CountryCode=countrycode;
+        this.AreaCode=areacode;
     }
 }
  export class addresses{
@@ -42,14 +42,14 @@ export class CreateUserModel
     State:string;
     Country:string;
     PIN:string;
-    constructor(e,f,g,h,i,j)
+    constructor(addresstype,addressline,city,state,country,pin)
     {
         
-        this.AddressType =e;
-        this.AddressLine=f;
-        this.City=g;
-        this.State=h;
-        this.Country=i;
-        this.PIN=j;
+        this.AddressType =addresstype;
+        this.AddressLine=addressline;
+        this.City=city;
+        this.State=state;
+        this.Country=country;
+        this.PIN=pin;
     }
 }

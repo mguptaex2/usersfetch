@@ -4,22 +4,30 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./updatemodel", "./update"], factory);
+        define(["require", "exports", "./UserModel", "./update", "./getapiform"], factory);
     }
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    var abc = require("./updatemodel");
+    var abc = require("./UserModel");
     var update_1 = require("./update");
+    var getapiform_1 = require("./getapiform");
     var form = document.querySelector('.contact-form');
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         console.log(toJSONString(getApiObject.data));
         new update_1.UpdateApi().update_data(toJSONString(getApiObject.data));
     });
+    // document.querySelector("#country").addEventListener("click", function () {
+    //   new GetApi().get_request("getdata_to_dropdown_country");
+    // });
+    // document.querySelector("#country1").addEventListener("click", function () {
+    //   new GetApi().get_request("getdata_to_dropdown_country");
+    // });
     function toJSONString(getModelObject) {
-        var obj = new abc.UpdateModel();
+        var obj = new abc.UserModel();
         var countryCode = getModelObject.phones[0].countryCode;
+        console.log(countryCode);
         var contactnumbertype = document.getElementById('contacttype').value;
         var number = document.getElementById('contactnumber').value;
         var areaCode = document.getElementById('areacode').value;
@@ -35,14 +43,13 @@
         var state1 = document.getElementById('state1').value;
         var country1 = document.getElementById('country1').value;
         var pin1 = document.getElementById('pincode1').value;
-        obj.phones.push(new abc.phones(contactnumbertype, number, countryCode, areaCode));
-        obj.addresses.push(new abc.addresses(AddressType, AddressLine, city, state, country, pin));
-        obj.addresses.push(new abc.addresses(AddressType1, AddressLine1, city1, state1, country1, pin1));
+        obj.Phones.push(new abc.phones(contactnumbertype, number, countryCode, areaCode));
+        obj.Addresses.push(new abc.addresses(AddressType, AddressLine, city, state, country, pin));
+        obj.Addresses.push(new abc.addresses(AddressType1, AddressLine1, city1, state1, country1, pin1));
         obj.Salutation = getModelObject.salutation;
         obj.FirstName = document.getElementById('fname').value;
         obj.MiddleName = document.getElementById('mname').value;
         obj.LastName = document.getElementById('lname').value;
-        console.log(getModelObject);
         obj.DepartmentName = getModelObject.departmentName;
         obj.DesignationName = getModelObject.designationName;
         obj.Email = getModelObject.email;
@@ -54,6 +61,6 @@
         obj.DOJ = getModelObject.doj;
         return JSON.stringify(obj);
     }
-    var getApiObject = new update_1.getApiForm();
+    var getApiObject = new getapiform_1.getApiForm();
     getApiObject.get_data_to_form();
 });
