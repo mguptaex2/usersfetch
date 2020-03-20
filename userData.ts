@@ -47,9 +47,13 @@ export class UserData
       getNewName(){
          return this.Salutation + " "+this.FirstName +" "+ this.MiddleName +" " + this.LastName;
       }
-      address()
+      getAddress()
       {
          return this.AddressLine + " ," + this.City + " ,"+ this.State + " ,"+ this.Country + " ," + this.PIN; 
+      }
+      getDate(dateString: string){
+         const [day, month, year] = this[dateString].split("-").map(Number);
+         return new Date(year, month - 1, day);
       }
    }
    //  export class phones{

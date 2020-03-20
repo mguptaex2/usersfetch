@@ -1,6 +1,7 @@
 import { UserData } from "./userData";
 import { Display1 } from "./Display";
 import { Compare } from "./Compare";
+import { openForm } from "./utilities";
 
 export class GetApi {
   get_request(compare:string) {
@@ -81,9 +82,14 @@ document.addEventListener("click", function(e){
     alert(username + " is deleted");
     temp.get_request("");
   }
-})
+
+  if ((e.target as HTMLButtonElement).className=="edit-button"){
+    openForm();
+  }
+}
 
 // const urlParams = new URLSearchParams(window.location.search);
 // const myParam = urlParams.get("abc");
 // console.log(myParam);
 
+);

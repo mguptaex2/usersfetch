@@ -2,6 +2,7 @@ import * as abc from "./UserModel";
 import { UpdateApi} from "./update";
 import { getApiForm } from "./getapiform";
 import { GetApi } from "./webpage";
+import { closeForm } from "./utilities";
 
 const form = document.querySelector('.contact-form');
 
@@ -9,6 +10,7 @@ form.addEventListener('submit', function (e) {
     e.preventDefault();
     console.log(toJSONString(getApiObject.data));
     new UpdateApi().update_data(toJSONString(getApiObject.data));
+    closeForm();
 });
 
 // document.querySelector("#country").addEventListener("click", function () {
