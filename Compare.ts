@@ -9,13 +9,13 @@ export class Compare {
         //       return ((first_person<second_person) ? -1 : ((first_person>second_person) ? 1 : 0)); 
         //    }
         //  }
-         SortByAge(first_person_age,second_person_age)
+         SortByAge()
          {     
             // var  first_person_age_Years = first_person_age.DOB.toString("yyyy");
             //  console.log(first_person_age_Years); 
              
            
-              return new Date(first_person_age.DOB) - (new Date(second_person_age.DOB));
+             // return new Date(first_person_age.DOB) - (new Date(second_person_age.DOB));
         }
              // if(first_person_age.age.Years!=seconde_person_age.age.Years)
               // { 
