@@ -4,12 +4,12 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./CreateUserModel", "./CreateUserApi"], factory);
+        define(["require", "exports", "./UserModel", "./CreateUserApi"], factory);
     }
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    var abc = require("./CreateUserModel");
+    var abc = require("./UserModel");
     var CreateUserApi_1 = require("./CreateUserApi");
     console.log("as");
     var form = document.querySelector('.contact-form');
@@ -21,7 +21,7 @@
         xx.Create_data(toJSONString(this));
     });
     function toJSONString(form) {
-        var obj = new abc.CreateUserModel();
+        var obj = new abc.UserModel();
         obj.Salutation = document.getElementById('sal').value;
         obj.FirstName = document.getElementById('fname').value;
         obj.MiddleName = document.getElementById('mname').value;

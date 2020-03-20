@@ -5,14 +5,12 @@ export class Display1 {
         {
 
             document.getElementById("out").innerHTML += "<p class='ss'> Name:" + obj.getNewName() + "<br>"
-                + " " + " <br> Address : <br>" + obj.AddressLine +" " +obj.City+" "+ obj.State+ " "+obj.Country+" "+obj.PIN+ "<br> "
-                + " " + " <br> Experience : " + obj.companyExperienceInString() + "<br>"
-                + " " + " <br> ContactPrimary:" + obj.ContactPrimary + "<br> "
-                + " " + " <br> ContactSecondary:" + obj.ContactSecondary + "<br> "
-                + " " + " <br> Age :" + obj.userAge() + "<br> "
-                + " " + " <br> IsIndian:" + obj.IsIndian + "<br> "
-                + "<a href=\"updateform.html?abc=" + obj.Username + "\">Update user details</a> <br>"
-                + "<button class=\"delete-button\" name=\"" + obj.Username + "\">Delete</button>";
+                + " " + " <br> Address : <br>" + obj.address()+ "<br> "
+                + " " + " <br> ContactPrimary:" + obj.Phone_number + "<br> "
+                + " " + " <br> Email:" + obj.Email + "<br>"
+                + " " + " <br> DOB :" + obj.DOB + "<br> "
+                + "<a href=\"updateform.html?abc=" + obj.UserName + "\">Update user details</a> <br>"
+                + "<button class=\"delete-button\" name=\"" + obj.UserName + "\">Delete</button>";
               
         }
     }

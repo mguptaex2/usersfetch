@@ -16,11 +16,11 @@
         function GetApi() {
         }
         GetApi.prototype.get_request = function (compare) {
-            fetch("http://localhost:5000/api/assignment").then(function (Response) { return Response.json(); }).then(function (data) {
+            fetch("http://localhost:5000/api/user").then(function (Response) { return Response.json(); }).then(function (data) {
                 console.log(data);
                 switch (compare) {
                     case "sort_by_name":
-                        data.sort(new Compare_1.Compare().SortByName);
+                        data.sort(function (FirstPerson, SecondPerson) { return (FirstPerson.FirstName > SecondPerson.FirstName) ? 1 : -1; });
                         break;
                     case "sort_by_age":
                         data.sort(new Compare_1.Compare().SortByAge);
@@ -64,7 +64,7 @@
         //     }).catch(err => console.log(err));
         // }
         GetApi.prototype.entered_name = function () {
-            fetch("http://localhost:5000/api/assignment?search=" + document.getElementById("fname").value)
+            fetch("http://localhost:5000/api/user?search=" + document.getElementById("fname").value)
                 .then(function (Response) { return Response.json(); })
                 .then(function (data) {
                 console.log(data);
