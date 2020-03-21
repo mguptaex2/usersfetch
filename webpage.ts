@@ -2,9 +2,11 @@ import { UserData } from "./userData";
 import { Display1 } from "./Display";
 import { Compare } from "./Compare";
 import { openForm } from "./utilities";
-
 import * as ab from "./CreateUserJsonData";
 import { CreateUserApi } from "./CreateUserApi";
+import * as binder from "./dataBinding";
+
+
 export class GetApi {
   get_request(compare:string) {
     fetch("http://localhost:5000/api/user").then
@@ -74,12 +76,13 @@ export class GetApi {
 });
 const form = document.querySelector('.contact-form');
  
-form.addEventListener('submit', function(e){
+(form as HTMLFormElement).addEventListener('submit', function(e){
     console.log("inside function")
     e.preventDefault();
     console.log(ab.toJSONString(this));
-   let xx= new CreateUserApi();
-   xx.Create_data(ab.toJSONString( this ));
+    let bindedModel=binder.bindFormToObject(this);
+   let xx = new CreateUserApi();
+   xx.Create_data(bindedModel);
 });
 
 document.addEventListener("click", function(e){
