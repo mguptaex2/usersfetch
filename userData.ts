@@ -55,6 +55,10 @@ export class UserData
          const [day, month, year] = this[dateString].split("-").map(Number);
          return new Date(year, month - 1, day);
       }
+      getDate1(){
+         const [day, month, year] = this.DOB.split("-").map(Number);
+         return new Date(year, month - 1, day);
+      }
    }
      
    // companyExperienceInString(){

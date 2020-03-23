@@ -15,13 +15,10 @@ export class GetApi {
         console.log(data);
         switch (compare) {
           case "sort_by_name": data.sort((FirstPerson: any, SecondPerson: any) => (FirstPerson.FirstName > SecondPerson.FirstName) ? 1 : -1);
-          console.log("aggfdgf"+(data[0].DOB));
- 
-          break;
-          case "sort_by_age":console.log(data.sort(new Compare().SortByAge));
-          
             break;
-          case "sort_by_exp": data.sort(new Compare().SortByExperience);
+          case "sort_by_age": data.sort(new Compare().SortByAge);
+            break;
+          case "sort_by_exp": data.sort(new Compare().SortByExp);
             break;
           default:
             break;
@@ -114,7 +111,7 @@ form.addEventListener('submit', function (e) {
 //       new UpdateApi().update_data(toJSONStringUpdate(getApiObject.data));
 //       closeForm();
 //     });
-    
+
 //   }
 // });
 document.addEventListener("click", function (e) {
@@ -143,7 +140,7 @@ document.addEventListener("click", function (e) {
       e.preventDefault();
       console.log(toJSONStringUpdate(getApiObject.data));
       new UpdateApi().update_data(toJSONStringUpdate(getApiObject.data));
-     // util.closeForm();
+      // util.closeForm();
     });
 
 

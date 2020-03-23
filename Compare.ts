@@ -1,63 +1,41 @@
 export class Compare {
           
-        //   SortByName(first_person_name,second_person_name)
-        //  {
-        //    if(first_person_name.name!= null && second_person_name.name!= null  && first_person_name.name!= undefined && second_person_name.name!= undefined)
-        //    {   
-        //       var first_person= first_person_name.name.toString().toLowerCase();
-        //       var second_person= second_person_name.name.toString().toLowerCase();
-        //       return ((first_person<second_person) ? -1 : ((first_person>second_person) ? 1 : 0)); 
-        //    }
-        //  }
         SortByAge(data_object_1,data_object_2)
-         {     
-            // var  first_person_age_Years = first_person_age.DOB.toString("yyyy");
-            //  console.log(first_person_age_Years); 
-            console.log("++++++++++"+data_object_1);
-            // return data_object_1.getDate("DOB") - data_object_2.getDate("DOB");
-
-           
-             // return new Date(first_person_age.DOB) - (new Date(second_person_age.DOB));
-        }
-             // if(first_person_age.age.Years!=seconde_person_age.age.Years)
-              // { 
-              //   console.log(1);  
-              //   if(first_person_age.age.Years > seconde_person_age.age.Years)return 1;
-              //   else if(first_person_age.age.Years < seconde_person_age.age.Years) return -1;
-                
-              // }
-              // else if(first_person_age.age.Months!=seconde_person_age.age.Months)
-              // {
-              //   console.log(2);  
-              //   if(first_person_age.age.Months>seconde_person_age.age.Months) return 1;
-              //   else if(first_person_age.age.Months<seconde_person_age.age.Months) return -1;
-              // }
-              // else if(first_person_age.age.Days!=seconde_person_age.age.Days)
-              // {
-              //   console.log(3);  
-              //   if(first_person_age.age.Days>seconde_person_age.age.Days) return 1;
-              //   else if(first_person_age.age.Days<seconde_person_age.age.Days) return -1;
-              // }
-              // else return 0;
-        
-        SortByExperience(first_person_exp,second_person_exp)
-         {
-             console.log(10);
-                  if(first_person_exp.currentCompanyExp.Years!=second_person_exp.currentCompanyExp.Years)
-                 {
-                      console.log(1);
-                     if(first_person_exp.currentCompanyExp.Years>second_person_exp.currentCompanyExp.Years)return 1;
-                     else if(first_person_exp.currentCompanyExp.Years<second_person_exp.currentCompanyExp.Years)return -1;
-                 }
-                 
-            else if(first_person_exp.currentCompanyExp.Months!=second_person_exp.currentCompanyExp.Months)
+         { 
+            let x=data_object_1.DOB.split("-");
+            let y=data_object_2.DOB.split("-");
+            if(x[2]!==y[2])
             {
-                if(first_person_exp.currentCompanyExp.Months>second_person_exp.currentCompanyExp.Months)return 1;
-                else if(first_person_exp.currentCompanyExp.Months<second_person_exp.currentCompanyExp.Months)return -1;
+              if(x[2]-y[2]>0)
+              return 1;
+              else
+              return -1;
+            }else if(x[1]!==y[1])
+            {
+              if(x[1]-y[1]>0)
+              return 1;
+              else return -1;
+            }
+            else if(x[0]!==y[0])
+            {
+              if(x[0]-y[0]>0)
+              return 1;
+              else return -1;
+            }
+            else return 0;
             }
 
-
-            else return 0;
-        }
-
+          
+            SortByExp(data_object_1,data_object_2)
+            { 
+              let d1= new Date(data_object_1.DOJ);
+               let d2=new Date(data_object_2.DOJ);
+               console.log(d1.getTime());
+               if(d1.getTime()>d2.getTime())
+               return 1;
+               else if(d1.getTime()<d2.getTime())
+               return -1;
+               else return 0;
+               }
+        
 }

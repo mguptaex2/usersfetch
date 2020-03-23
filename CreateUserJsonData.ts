@@ -2,16 +2,6 @@ import * as abc from "./UserModel";
 import { CreateUserApi } from "./CreateUserApi";
 
 console.log("as");
-//   const form = document.querySelector('.contact-form');
- 
-//    form.addEventListener('submit', function(e){
-//        console.log("inside function")
-//        e.preventDefault();
-//        console.log(toJSONString(this));
-//       let xx= new CreateUserApi();
-//       xx.Create_data(toJSONString( this ));
-//    });
-
 
 export function toJSONString( form:any ) {
     
