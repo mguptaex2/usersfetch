@@ -1,11 +1,12 @@
 export class getApiForm
 {
     data:any;
-    get_data_to_form()
+    get_data_to_form(myParam)
     {
         console.log("efb");
-        const urlParams = new URLSearchParams(window.location.search);
-        const myParam = urlParams.get("abc");
+       
+        // const urlParams = new URLSearchParams(window.location.search);
+        // const myParam = urlParams.get("abc");
         console.log(myParam);
         fetch("http://localhost:5000/api/user/"+myParam)
       

@@ -9,11 +9,13 @@ export class Compare {
         //       return ((first_person<second_person) ? -1 : ((first_person>second_person) ? 1 : 0)); 
         //    }
         //  }
-         SortByAge()
+        SortByAge(data_object_1,data_object_2)
          {     
             // var  first_person_age_Years = first_person_age.DOB.toString("yyyy");
             //  console.log(first_person_age_Years); 
-             
+            console.log(data_object_1);
+            return data_object_1.getDate("DOB") - data_object_2.getDate("DOB");
+
            
              // return new Date(first_person_age.DOB) - (new Date(second_person_age.DOB));
         }

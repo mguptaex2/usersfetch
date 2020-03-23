@@ -2,14 +2,16 @@ import * as abc from "./UserModel";
 import { UpdateApi} from "./update";
 import { getApiForm } from "./getapiform";
 import { GetApi } from "./webpage";
+import { closeForm } from "./utilities";
 
-const form = document.querySelector('.contact-form');
+// const form = document.querySelector('.contact-form');
 
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    console.log(toJSONString(getApiObject.data));
-    new UpdateApi().update_data(toJSONString(getApiObject.data));
-});
+// form.addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     console.log(toJSONStringUpdate(getApiObject.data));
+//     new UpdateApi().update_data(toJSONStringUpdate(getApiObject.data));
+//     closeForm();
+// });
 
 // document.querySelector("#country").addEventListener("click", function () {
 //   new GetApi().get_request("getdata_to_dropdown_country");
@@ -18,7 +20,7 @@ form.addEventListener('submit', function (e) {
 //   new GetApi().get_request("getdata_to_dropdown_country");
 // });
 
-function toJSONString(getModelObject) {
+export function toJSONStringUpdate(getModelObject:any) {
 
     var obj = new abc.UserModel();
     var countryCode = getModelObject.phones[0].countryCode;
@@ -39,9 +41,9 @@ function toJSONString(getModelObject) {
     var country1 = (document.getElementById('country1') as HTMLInputElement).value;
     var pin1 = (document.getElementById('pincode1') as HTMLInputElement).value;
 
-    obj.Phones.push(new abc.phones(contactnumbertype, number, countryCode, areaCode));
-    obj.Addresses.push(new abc.addresses(AddressType, AddressLine, city, state, country, pin));
-    obj.Addresses.push(new abc.addresses(AddressType1, AddressLine1, city1, state1, country1, pin1));
+    obj.phones.push(new abc.phones(contactnumbertype, number, countryCode, areaCode));
+    obj.addresses.push(new abc.addresses(AddressType, AddressLine, city, state, country, pin));
+    obj.addresses.push(new abc.addresses(AddressType1, AddressLine1, city1, state1, country1, pin1));
     obj.Salutation = getModelObject.salutation;
     obj.FirstName = (document.getElementById('fname') as HTMLInputElement).value;
     obj.MiddleName = (document.getElementById('mname') as HTMLInputElement).value;
@@ -58,5 +60,5 @@ function toJSONString(getModelObject) {
 
     return JSON.stringify(obj);
 }
-const getApiObject = new getApiForm();
-getApiObject.get_data_to_form();
+// const getApiObject = new getApiForm();
+// getApiObject.get_data_to_form();

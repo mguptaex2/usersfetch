@@ -47,44 +47,16 @@ export class UserData
       getNewName(){
          return this.Salutation + " "+this.FirstName +" "+ this.MiddleName +" " + this.LastName;
       }
-      address()
+      getAddress()
       {
          return this.AddressLine + " ," + this.City + " ,"+ this.State + " ,"+ this.Country + " ," + this.PIN; 
       }
+      getDate(dateString: string){
+         const [day, month, year] = this[dateString].split("-").map(Number);
+         return new Date(year, month - 1, day);
+      }
    }
-   //  export class phones{
-   //     ContactNumberType:string;
-   //     Number:string;
-   //      CountryCode : string;
-   //     AreaCode:string;
-   //     constructor(contacttype,number,countrycode,areacode)
-   //     {
-   //         this.ContactNumberType=contacttype;
-   //         this.Number=number;
-   //         this.CountryCode=countrycode;
-   //         this.AreaCode=areacode;
-   //     }
-   // }
-   //  export class addresses{
-      
-   //     AddressType:string;
-   //     AddressLine:string;
-   //     City:string;
-   //     State:string;
-   //     Country:string;
-   //     PIN:string;
-   //     constructor(addresstype,addressline,city,state,country,pin)
-   //     {
-           
-   //         this.AddressType =addresstype;
-   //         this.AddressLine=addressline;
-   //         this.City=city;
-   //         this.State=state;
-   //         this.Country=country;
-   //         this.PIN=pin;
-   //     }
-   // }
-   
+     
    // companyExperienceInString(){
    //    let res: String = "";
    //    if(this.CurrentCompanyExpInYears > 0){

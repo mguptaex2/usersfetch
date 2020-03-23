@@ -14,11 +14,11 @@ export class UserModel
     Gender:string;
     DOJ:string;
  
-   Phones:phones[];
-   Addresses:addresses[];
+   phones:phones[];
+   addresses:addresses[];
    constructor(){
-       this.Addresses = new Array();
-       this.Phones=new Array();
+       this.addresses = new Array();
+       this.phones=new Array();
    }
 }
  export class phones{
