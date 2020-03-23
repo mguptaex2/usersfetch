@@ -13,8 +13,8 @@ export class Compare {
          {     
             // var  first_person_age_Years = first_person_age.DOB.toString("yyyy");
             //  console.log(first_person_age_Years); 
-            console.log(data_object_1);
-            return data_object_1.getDate("DOB") - data_object_2.getDate("DOB");
+            console.log("++++++++++"+data_object_1);
+            // return data_object_1.getDate("DOB") - data_object_2.getDate("DOB");
 
            
              // return new Date(first_person_age.DOB) - (new Date(second_person_age.DOB));

@@ -9,7 +9,7 @@ export class Display1 {
                 + " " + " <br> ContactPrimary:" + obj.Phone_number + "<br> "
                 + " " + " <br> Email:" + obj.Email + "<br>"
                 + " " + " <br> DOB :" + obj.DOB + "<br> "
-                + "<button class=\"edit-button\" data-username=\"" + obj.UserName + "\">Update user details</a> <br>"
+                + "<button class=\"edit-button\" data-username=\"" + obj.UserName + "\"  >Update user details</button> <br>"
                 + "<button class=\"delete-button\" name=\"" + obj.UserName + "\">Delete</button>";
               
         }

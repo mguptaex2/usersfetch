@@ -32,7 +32,7 @@ body *{
 
 
 }
-.overlay{
+/* .overlay{
   display:none;
 }
 
@@ -46,7 +46,7 @@ body *{
   padding: 50px;
   z-index: 3;
   background-color: aqua;
-} 
+}  */
 
 .RegisterForm{
   position: absolute;

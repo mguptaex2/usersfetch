@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="overlay">
+    <!-- <div class="overlay">
         <form name="form1" class="contact-form-update" id="test" action="#" method="post">
 
             <h1>Update Form</h1>
@@ -57,7 +57,7 @@
             Area Code:<br> <input type="text" id="areacode" placeholder="Enter area code"> <br><br>
 
             <!-- Contact Secondary Number:<br><input type = "text"  name="contactsecondary" placeholder="Enter Your Secondary Number"><br><br>  -->
-            Address:<br><input type="text" id="address" name="address" placeholder="Enter Your Address"><br><br>
+            <!-- Address:<br><input type="text" id="address" name="address" placeholder="Enter Your Address"><br><br>
             Address Type: <input type="text" id="addresstype" value="current"><br><br>
             City:
             <select name="select" id="city">
@@ -76,7 +76,7 @@
             </select><br><br>
             Pincode:<br><input type="text" id="pincode" placeholder="Enter Your Address"><br><br>
             <!-- <input type="submit" id="update" value="Update"> -->
-
+<!-- 
             <br><br>
             Address:<br><input type="text" id="address1" name="address" placeholder="Enter Your Address"><br><br>
             Address Type: <input type="text" id="addresstype1" value="permanent"><br><br>
@@ -100,7 +100,7 @@
             <br><br>
         </form>
 
-    </div>
+    </div>  -->
 
     <div class="BackDrop" id="backDrop"></div>
     <div class="RegisterForm" id="register">
@@ -123,14 +123,14 @@
                         <select style="height: 29px;" id="Salutation" name="Salutation">
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
-                            <option value="Miss">Miss</option>
+                            <option value="Ms">Ms</option>
                             <option value="Dr">Dr</option>
                         </select>
                         <input type="text" placeholder="Enter First Name" id="Firstname">
                         <!--class="form-control"-->
                         <input type="text" placeholder="Enter Middle Name" id="Middlename">
                         <input type="text" placeholder="Enter Last Name" id="Lastname">
-                        <span id="usernames" class="text-danger font-weight-bold"></span>
+                        <!-- <span id="usernames" class="text-danger font-weight-bold"></span> -->
                     </div>
                     <div class="form-group">
                         <label> Password: </label>
@@ -317,8 +317,11 @@
             document.getElementById('usernames').innerHTML = "Username Should Be Between 5 and 20";
             return false;
         }
-
-
+        // var Firstname = document.getElementById('FirstName').value;
+        // if(Firstname == "")
+        // {
+        //     document.getElementById('FirstName').innerHTML = "Fill First Name";
+        // }
         var passwords = document.getElementById('password').value;
         if (passwords == "") {
             document.getElementById('passwords').innerHTML = "Fill Password";

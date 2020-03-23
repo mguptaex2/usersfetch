@@ -3,7 +3,7 @@ import { Display1 } from "./Display";
 import { Compare } from "./Compare";
 import * as ab from "./CreateUserJsonData";
 import { CreateUserApi } from "./CreateUserApi";
-import { openForm, closeForm } from "./utilities";
+import * as util from "./utilities";
 import { toJSONStringUpdate } from "./jsonfile";
 import { getApiForm } from "./getapiform";
 import { UpdateApi } from "./update";
@@ -15,8 +15,10 @@ export class GetApi {
         console.log(data);
         switch (compare) {
           case "sort_by_name": data.sort((FirstPerson: any, SecondPerson: any) => (FirstPerson.FirstName > SecondPerson.FirstName) ? 1 : -1);
-            break;
-          case "sort_by_age": data.sort(new Compare().SortByAge);
+          console.log("aggfdgf"+(data[0].DOB));
+ 
+          break;
+          case "sort_by_age":console.log(data.sort(new Compare().SortByAge));
           
             break;
           case "sort_by_exp": data.sort(new Compare().SortByExperience);
@@ -86,6 +88,35 @@ form.addEventListener('submit', function (e) {
   xx.Create_data(ab.toJSONString(this));
 });
 
+// document.addEventListener("click", function (e) {
+//   if ((e.target as HTMLButtonElement).className == "delete-button") {
+
+//     const temp = new GetApi();
+
+//     const username: any = (e.target as HTMLButtonElement).getAttribute('name');
+
+//     temp.delete_data(username);
+//     (document.getElementById("out") as HTMLFormElement).innerHTML = "";
+//     alert(username + " is deleted");
+//     temp.get_request("");
+//   }
+//   if ((e.target as HTMLButtonElement).className == "edit-button") {
+//     openForm();
+//    // console.log((e.target as HTMLButtonElement).hasAttribute('data-username'));
+//     const username: any = (e.target as HTMLButtonElement).getAttribute('data-username');
+//      console.log("update" + username);
+//     var getApiObject = new getApiForm();
+//     getApiObject.get_data_to_form(username);
+//     const form1 = document.querySelector('.contact-form-update');
+//      form1.addEventListener('submit', function (e) {
+//       e.preventDefault();
+//       console.log(toJSONStringUpdate(getApiObject.data));
+//       new UpdateApi().update_data(toJSONStringUpdate(getApiObject.data));
+//       closeForm();
+//     });
+    
+//   }
+// });
 document.addEventListener("click", function (e) {
   if ((e.target as HTMLButtonElement).className == "delete-button") {
 
@@ -99,20 +130,26 @@ document.addEventListener("click", function (e) {
     temp.get_request("");
   }
   if ((e.target as HTMLButtonElement).className == "edit-button") {
-    openForm();
-   // console.log((e.target as HTMLButtonElement).hasAttribute('data-username'));
+    //util.openForm();
+    util.myFunction();
+    console.log((e.target as HTMLButtonElement).hasAttribute('data-username'));
     const username: any = (e.target as HTMLButtonElement).getAttribute('data-username');
-     console.log("update" + username);
+    console.log("update" + username);
     var getApiObject = new getApiForm();
     getApiObject.get_data_to_form(username);
-    const form1 = document.querySelector('.contact-form-update');
-     form1.addEventListener('submit', function (e) {
+    const form1 = document.querySelector('.contact-form');
+    util.disableEditing();
+    form1.addEventListener('submit', function (e) {
       e.preventDefault();
       console.log(toJSONStringUpdate(getApiObject.data));
       new UpdateApi().update_data(toJSONStringUpdate(getApiObject.data));
-      closeForm();
+     // util.closeForm();
     });
-    
+
+
+
+
+
   }
 });
 
