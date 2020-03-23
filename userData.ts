@@ -22,7 +22,7 @@ export class UserData
        Country:string;
        PIN : number;
       
-      constructor(data){
+      constructor(data:any){
           this.AddressLine =data.addresses[0].AddressLine ;
           this.City=data.addresses[0].City;
           this.State=data.addresses[0].State;
@@ -44,7 +44,7 @@ export class UserData
           this.DOJ=data.DOJ;
 
       }
-      getNewName(){
+      getName(){
          return this.Salutation + " "+this.FirstName +" "+ this.MiddleName +" " + this.LastName;
       }
       getAddress()
@@ -52,36 +52,7 @@ export class UserData
          return this.AddressLine + " ," + this.City + " ,"+ this.State + " ,"+ this.Country + " ," + this.PIN; 
       }
       getDate(dateString: string){
-         const [day, month, year] = this[dateString].split("-").map(Number);
+         const [year, month, day] = this[dateString].split("-").map(Number);
          return new Date(year, month - 1, day);
       }
    }
-     
-   // companyExperienceInString(){
-   //    let res: String = "";
-   //    if(this.CurrentCompanyExpInYears > 0){
-   //     res+=this.getSingularOrPluralString(this.CurrentCompanyExpInYears,"Year");
-   //    }
-   //    if(this.CurrentCompanyExpInMonths > 0){
-   //      res+= this.getSingularOrPluralString(this.CurrentCompanyExpInMonths,"Month");
-   //    }
-   //    return res;
-   // }
-   // userAge(){
-
-   //    let res: String = "";
-   //    if(this.AgeInYears > 0){
-   //     res+=this.getSingularOrPluralString(this.AgeInYears,"Year");
-   //    }
-   //    if(this.AgeInMonths > 0){
-   //      res+= this.getSingularOrPluralString(this.AgeInMonths,"Month");
-   //    }
-   //    return res;
-   // }
-   // getSingularOrPluralString(quantity:number,value:string)
-   // {
-   //   let res=quantity + value;
-   //   res += quantity > 1 ? "s " : " ";
-   //   return res;
-   // }
-   

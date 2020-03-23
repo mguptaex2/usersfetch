@@ -1,55 +1,63 @@
-export class UserModel
-{
-    Salutation:string;
-    FirstName:string;
-    MiddleName:string;
-    LastName:string;
-    DepartmentName:string;
-    DesignationName:string;
-    Email:string;
-    AltEmail:string;
-    UserName:string;
-    Password:string;
-    DOB:string;
-    Gender:string;
-    DOJ:string;
- 
-   phones:phones[];
-   addresses:addresses[];
-   constructor(){
-       this.addresses = new Array();
-       this.phones=new Array();
-   }
+export class UserModel {
+	salutation: string = "";
+	firstName: string = "";
+	middleName: string | null = null;
+	lastName: string = "";
+	departmentName: string = "";
+	designationName: string = "";
+	email: string = "";
+	altEmail: string| null = null;
+	userName: string = "";
+	password: string = "";
+	dob: string = "";
+	gender: string = "";
+	doj: string = "";
+
+	phones: phones[];
+	addresses: addresses[];
+	constructor(obj: any | null = null) {
+		this.addresses = new Array<addresses>();
+		this.phones = new Array<phones>();
+		if(obj){
+			for(let property in obj){
+				if(typeof obj[property] == 'string'){
+					this[property] = obj[property];
+				}
+			}
+			for(const phoneObject of obj.phones){
+				this.phones.push(new phones(phoneObject));
+			}
+			for(const addressObject of obj.addresses){
+				this.addresses.push(new addresses(addressObject));
+			}
+		}
+	}
 }
- export class phones{
-    ContactNumberType:string;
-    Number:string;
-     CountryCode : string;
-    AreaCode:string;
-    constructor(contacttype,number,countrycode,areacode)
-    {
-        this.ContactNumberType=contacttype;
-        this.Number=number;
-        this.CountryCode=countrycode;
-        this.AreaCode=areacode;
-    }
+export class phones {
+	contactNumberType: string;
+	number: string;
+	countryCode: string;
+	areaCode: string;
+	constructor(phoneObject: phones) {
+		this.contactNumberType = phoneObject.contactNumberType;
+		this.number = phoneObject.number;
+		this.countryCode = phoneObject.countryCode;
+		this.areaCode = phoneObject.areaCode;
+	}
 }
- export class addresses{
-   
-    AddressType:string;
-    AddressLine:string;
-    City:string;
-    State:string;
-    Country:string;
-    PIN:string;
-    constructor(addresstype,addressline,city,state,country,pin)
-    {
-        
-        this.AddressType =addresstype;
-        this.AddressLine=addressline;
-        this.City=city;
-        this.State=state;
-        this.Country=country;
-        this.PIN=pin;
-    }
+export class addresses {
+	addressType: string;
+	addressLine: string;
+	city: string;
+	state: string;
+	country: string;
+	pin: string;
+	constructor(addressObject: addresses) {
+		this.addressType = addressObject.addressType;
+		this.addressLine = addressObject.addressLine;
+		this.city = addressObject.city;
+		this.state = addressObject.state;
+		this.country = addressObject.country;
+		this.pin = addressObject.pin;
+	}
 }

@@ -1,72 +1,45 @@
-html, body{
-  position: relative;
+html,
+body {
+	position: relative;
 }
 
-body *{
-  position: relative;
+body * {
+	position: relative;
 }
-.ss{
-     /* border: auto ; */
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
-  /* border-width: 10px; */
- letter-spacing: 2px;
-    /* border-color: rgb(117, 124, 124);  */
-  font-style: italic;
-   /* padding: 1%; */
-  Text-align : center;
-    width: 350px;
-  height: 400px;
-  margin: 5px 15px;
+.ss {
+	background-color: rgb(255, 255, 255);
+	border: 1px solid black;
+	letter-spacing: 2px;
+	font-style: italic;
+	text-align: center;
+	width: 350px;
+	height: 400px;
+	margin: 5px 15px;
 }
-.heading
-{
-  color: blue;
-  font-style: italic;
-  text-align: center;
+.heading {
+	color: blue;
+	font-style: italic;
+	text-align: center;
 }
-.users
-{
-  text-align: center;
-  text-shadow: rosybrown;
-
-
+.users {
+	text-align: center;
+	text-shadow: rosybrown;
 }
-/* .overlay{
-  display:none;
+.RegisterForm {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	width: 80%;
+	display: none;
+	z-index: 200;
+	background-color: #fff;
 }
-
-.overlay.active{
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  margin: 50px;
-  padding: 50px;
-  z-index: 3;
-  background-color: aqua;
-}  */
-
-.RegisterForm{
-  position: absolute;
-  top: 30%;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  width: 1200px;
-  visibility: hidden;
-  z-index: 200;
-  
+.RegisterForm .container {
+	background-color: #eee;
 }
-.BackDrop {
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  /* background-color: slateblue; */
-  position: fixed;
-  top: 0;
-  left: 0;
-  visibility: hidden;
+.RegisterForm.active {
+	display: block;
 }

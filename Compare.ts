@@ -1,63 +1,16 @@
+import { UserData } from "./userData";
+
 export class Compare {
-          
-        //   SortByName(first_person_name,second_person_name)
-        //  {
-        //    if(first_person_name.name!= null && second_person_name.name!= null  && first_person_name.name!= undefined && second_person_name.name!= undefined)
-        //    {   
-        //       var first_person= first_person_name.name.toString().toLowerCase();
-        //       var second_person= second_person_name.name.toString().toLowerCase();
-        //       return ((first_person<second_person) ? -1 : ((first_person>second_person) ? 1 : 0)); 
-        //    }
-        //  }
-        SortByAge(data_object_1,data_object_2)
-         {     
-            // var  first_person_age_Years = first_person_age.DOB.toString("yyyy");
-            //  console.log(first_person_age_Years); 
-            console.log("++++++++++"+data_object_1);
-            // return data_object_1.getDate("DOB") - data_object_2.getDate("DOB");
-
-           
-             // return new Date(first_person_age.DOB) - (new Date(second_person_age.DOB));
+        SortByName(User_1: UserData, User_2: UserData){
+            return User_1.getName().localeCompare(User_2.getName());
         }
-             // if(first_person_age.age.Years!=seconde_person_age.age.Years)
-              // { 
-              //   console.log(1);  
-              //   if(first_person_age.age.Years > seconde_person_age.age.Years)return 1;
-              //   else if(first_person_age.age.Years < seconde_person_age.age.Years) return -1;
-                
-              // }
-              // else if(first_person_age.age.Months!=seconde_person_age.age.Months)
-              // {
-              //   console.log(2);  
-              //   if(first_person_age.age.Months>seconde_person_age.age.Months) return 1;
-              //   else if(first_person_age.age.Months<seconde_person_age.age.Months) return -1;
-              // }
-              // else if(first_person_age.age.Days!=seconde_person_age.age.Days)
-              // {
-              //   console.log(3);  
-              //   if(first_person_age.age.Days>seconde_person_age.age.Days) return 1;
-              //   else if(first_person_age.age.Days<seconde_person_age.age.Days) return -1;
-              // }
-              // else return 0;
-        
-        SortByExperience(first_person_exp,second_person_exp)
-         {
-             console.log(10);
-                  if(first_person_exp.currentCompanyExp.Years!=second_person_exp.currentCompanyExp.Years)
-                 {
-                      console.log(1);
-                     if(first_person_exp.currentCompanyExp.Years>second_person_exp.currentCompanyExp.Years)return 1;
-                     else if(first_person_exp.currentCompanyExp.Years<second_person_exp.currentCompanyExp.Years)return -1;
-                 }
-                 
-            else if(first_person_exp.currentCompanyExp.Months!=second_person_exp.currentCompanyExp.Months)
-            {
-                if(first_person_exp.currentCompanyExp.Months>second_person_exp.currentCompanyExp.Months)return 1;
-                else if(first_person_exp.currentCompanyExp.Months<second_person_exp.currentCompanyExp.Months)return -1;
-            }
-
-
-            else return 0;
+        SortByAge(User_1: UserData,User_2: UserData)
+        {
+            return User_1.getDate("DOB") - User_2.getDate("DOB");
         }
 
+        SortByExperience(User_1: UserData,User_2: UserData)
+        {
+            return User_1.getDate("DOJ") - User_2.getDate("DOJ");
+        }
 }
